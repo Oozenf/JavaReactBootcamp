@@ -31,8 +31,12 @@ class CategoryService {
 
   async putOneCategory(id,category){
     const url = `${this.baseUrl}/${id}`;
-    console.log(url)
-    return await axios.put(url,category).then(resp => resp.data);
+
+    return await axios.put(url,category,{
+      headers:{
+        'Authorization': localStorage?.getItem('accessToken')
+      }
+    }).then(resp => resp.data);
   }
 
   
