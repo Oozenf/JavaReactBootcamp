@@ -14,9 +14,9 @@ export default function BookCardList() {
 
   return (
     <div>
-      <Grid sx={{ mt: 3, padding: 2 }} container spacing={3}>
-        {books?.map((book) => (
-          <Grid spacing={3} item xs={8} md={5} lg={4}>
+      <Grid sx={{ mt: 3, padding: 4 }} container spacing={3}>
+        {books?.map((book,index) => (
+          <Grid key ={index} item xs={8} md={5} lg={4}>
             <BookCard key={book.id} book={book} />
           </Grid>
         ))}

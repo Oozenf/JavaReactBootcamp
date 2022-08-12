@@ -53,9 +53,9 @@ export default function BookCard({book}) {
         sx={{ objectFit: "contain" }}
       />
       <CardContent sx={{minHeight: 80}}>
-      {book.bookAuthors.map((authors) => {
+      {book.bookAuthors.map((authors,index) => {
           return (
-            <Typography variant="body2" color="text.secondary" align="center" justifySelf={"center"}>
+            <Typography key = {index} variant="body2" color="text.secondary" align="center" justifySelf={"center"}>
               {authors.firstName} {authors.lastName}
             </Typography>
           );

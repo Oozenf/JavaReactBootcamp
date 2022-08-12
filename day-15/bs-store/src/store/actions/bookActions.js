@@ -23,19 +23,20 @@ export function getOneBook(id) {
     };
   }
 
-export function deleteOneBook(id) {
+export function deleteOneBook(id,accessToken) {
   return function (dispatch) {
     bookService
-      .deleteOneBook(id)
+      .deleteOneBook(id,accessToken)
       .then(() => dispatch({ type: DELETE_ONE_BOOK, payload: id }));
   };
 }
 
-export function postOneBook(book) {
+export function postOneBook(book,accessToken) {
   return function (dispatch) {
     bookService
-      .postOneBook(book)
+      .postOneBook(book,accessToken)
       .then((resp) => resp.data)
+      .then((resp) => console.log(resp))
       .then((resp) => dispatch({ type: POST_ONE_BOOK, payload: resp }));
   };
 }

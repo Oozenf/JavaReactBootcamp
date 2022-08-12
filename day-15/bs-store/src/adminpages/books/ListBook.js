@@ -19,6 +19,8 @@ import SimpleFab from "../../components/fab/SimpleFab";
 
 export default function ListBook() {
   const { books } = useSelector((state) => state.book);
+  const auths = useSelector((state) => state.auth)
+  console.log(auths.authItems.accessToken)
   const bookDispatch = useDispatch();
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export default function ListBook() {
 
   const handleRemove = (id) => {
     console.log(id)
-     bookDispatch(deleteOneBook(id));
+     bookDispatch(deleteOneBook(id,auths.authItems.accessToken));
   }
 
   return (

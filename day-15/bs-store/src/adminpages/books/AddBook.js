@@ -30,6 +30,9 @@ export default function AddBook() {
   const navigate = useNavigate();
 
   const selector = useSelector((state) => state.book);
+  const auths = useSelector((state) => state.auth);
+  console.log(auths.authItems.accessToken);
+
   const bookDispatch = useDispatch();
 
   const [authors, setAuthors] = useState([]);
@@ -50,12 +53,14 @@ export default function AddBook() {
       },
       onSubmit: async (values) => {
         console.log(values);
-        bookDispatch(postOneBook(values));
+        bookDispatch(postOneBook(values,auths.authItems.accessToken));
         bookDispatch(showSnackbar({
             message:"Book has been added.",
             severity:"success"
         }));
-        navigate("/admin/books/list");
+        setTimeout(()=> {
+          navigate("/admin/books/list")
+        },3000);
       },
     });
 
