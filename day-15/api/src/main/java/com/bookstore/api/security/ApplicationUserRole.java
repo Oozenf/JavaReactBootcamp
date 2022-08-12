@@ -10,6 +10,7 @@ import static com.bookstore.api.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
 
+    // HANGİ ROL HANGİ YETKİLERE SAHİP OLSUN
     ADMIN(Sets.newHashSet(
             BOOK_GET, BOOK_POST, BOOK_PUT, BOOK_DELETE,
             CATEGORY_GET, CATEGORY_POST, CATEGORY_PUT, CATEGORY_DELETE,

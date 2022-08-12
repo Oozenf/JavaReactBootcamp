@@ -2,6 +2,7 @@ package com.bookstore.api.controllers;
 
 import javax.validation.Valid;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -21,7 +22,8 @@ import com.bookstore.api.services.Abstract.AuthorService;
 
 @RestController
 @RequestMapping("api/v1/authors")
-// @CrossOrigin
+
+//@CrossOrigin
 public class AuthorController {
 
     private final AuthorService authorService;

@@ -69,6 +69,9 @@ public class ApplicationSecurityConfig
                                 .authenticated();
         }
 
+//            .antMatchers("/auth/admin/*").hasRole("ADMIN");
+//            .antMatchers("/auth/*").hasAnyRole("ADMIN","USER");
+
         @Override
         protected void configure(AuthenticationManagerBuilder auth) throws Exception {
                 auth.authenticationProvider(daoAuthenticationProvider());

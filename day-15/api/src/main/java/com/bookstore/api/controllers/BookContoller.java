@@ -28,7 +28,7 @@ public class BookContoller {
     private final BookService bookService;
 
     @GetMapping
-    @PreAuthorize("permitAll()")
+    @PreAuthorize("permitAll()")  // ISTEYEN ALSIN
     public ResponseEntity<?> getAllBooks() {
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -43,7 +43,7 @@ public class BookContoller {
     }
 
     @PostMapping
-    @PreAuthorize("hasAuthority('book:post')")
+    @PreAuthorize("hasAuthority('book:post')") // BU YETKİYE SAHİP OLANLARA İZİN VER
     public ResponseEntity<?> postOneBook(@RequestBody @Valid BookDtoForPost book) {
         var response = bookService.postOneBook(book);
         return new ResponseEntity<>(response, response.getHttpStatus());

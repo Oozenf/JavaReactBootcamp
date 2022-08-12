@@ -1,6 +1,8 @@
 package com.bookstore.api.security;
 
 public enum ApplicationUserPermission {
+
+    // AUTHORITY LER
     BOOK_GET("book:get"),
     BOOK_POST("book:post"),
     BOOK_PUT("book:put"),
