@@ -53,9 +53,11 @@ public class AuthorServiceImp implements AuthorService {
     }
 
     @Override
-    public void deleteOneAuthor(int id) {
-        getOneAuthor(id);
+    public ApiResponse<Author> deleteOneAuthor(int id) {
+        var apiResponse = getOneAuthor(id);
         authorRepository.deleteById(id);
+        return apiResponse;
+
     }
 
     @Override

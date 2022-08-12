@@ -3,11 +3,14 @@ import AppContext from "../../context/AppContext";
 import AuthorService from "../../services/AuthorService";
 import { Button, Container, Fab, Stack, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SimpleFab from "../../components/fab/SimpleFab";
 
 export default function AddAuthor() {
   const authorService = new AuthorService();
+  const auths = useSelector((state) => state.auth);
+  console.log(auths.authItems.accessToken);
   
   const { authors, 
     isLoading,
@@ -15,9 +18,9 @@ export default function AddAuthor() {
     setAuthors } = useContext(AppContext);
 
   const initial = {
-    firstName: "Aslan",
-    lastName: "Can",
-    email: "aslan.can@gmail.com",
+    firstName: "",
+    lastName: "",
+    email: "",
   };
 
   const [form, setForm] = useState(initial);
@@ -44,7 +47,7 @@ export default function AddAuthor() {
    
    setTimeout(() => {
        authorService
-       .postOneAuthor(form)
+       .postOneAuthor(form,auths.authItems.accessToken)
        .then((resp) => setAuthors([...authors, resp.data]))
        .catch((err) => alert(err));
        setIsLoading(false);

@@ -16,12 +16,16 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useSelector } from "react-redux";
 import SimpleFab from "../../components/fab/SimpleFab";
+import AuthorService from "../../services/AuthorService";
 
 export default function ListAuthor() {
+  const authorService =  new AuthorService();
   const { theme, pageSize } = useSelector((state) => state.setting);
-  const { authors, setAuthors, isLoading, setIsLoading } =
-    React.useContext(AppContext);
-  const navigate = useNavigate();
+  const { authors, setAuthors, isLoading, setIsLoading } = React.useContext(AppContext);
+  
+  const auths = useSelector((state) => state.auth);
+  const accessToken = auths.authItems.accessToken
+
 
   const removeAuthor = (id) => {
     // let arr = [];
@@ -37,17 +41,14 @@ export default function ListAuthor() {
 
     setIsLoading(true);
 
-    const url = `http://localhost:8080/api/v1/authors/${id}`;
-    console.log(url);
+    
 
-    axios
-      .delete(url)
-      .then((resp) => resp.data)
+    authorService.deleteOneAuthor(id,accessToken)
       .then((resp) => {
+        setAuthors(resp.data)
         let afterRemove = authors.filter((author) => author.id !== id);
         setAuthors(afterRemove);
       })
-      .catch((err) => console.error("DELETE ERROR", err));
 
     setIsLoading(false);
   };

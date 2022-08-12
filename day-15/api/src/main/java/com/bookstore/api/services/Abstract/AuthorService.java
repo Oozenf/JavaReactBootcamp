@@ -17,7 +17,7 @@ public interface AuthorService {
 
     ApiResponse<Author> putOneAuthor(int id, Author author);
 
-    void deleteOneAuthor(int id);
+    ApiResponse<Author> deleteOneAuthor(int id);
 
     Set<Author> getAuthorsByIds(List<Integer> authorIds);
 }

@@ -20,11 +20,17 @@ class AuthorService {
       .catch((err) => console.log(err));
   }
 
-  async postOneAuthor(payload) {
-    return await axios
-      .post(this.baseUrl, payload)
-      .then((resp) => resp.data)
-      .catch((err) => console.log(err));
+  async postOneAuthor(payload,accessToken) {
+      const url = this.baseUrl;
+        const config = {
+            url,
+            data: payload,
+            method: "post",
+            headers: {
+              Authorization: accessToken,
+            },
+          };
+        return await axios(config).then(resp => resp.data).catch((err) => console.log(err));
   }
 
   async putOneAuthor(id, author) {
@@ -34,11 +40,20 @@ class AuthorService {
       .catch((err) => console.log(err));
   }
 
-  async deleteOneAuthor(id) {
-    return await axios
-      .delete(id)
-      .then((resp) => resp)
-      .catch((err) => console.log(err));
+  async deleteOneAuthor(id,accessToken) {
+    const url = `${this.baseUrl}/${id}`;
+
+    const config = {
+      url,
+      method:"delete",
+      headers: {
+        Authorization: accessToken,
+      },
+    };
+
+    return await axios(config).then(resp => resp).catch((err) => console.error("DELETE ERROR", err));
+
+
   }
 }
 

@@ -70,8 +70,8 @@ public class AuthorController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('author:delete')")
-    public ResponseEntity<Void> deleteOneAuthor(@PathVariable("id") int id) {
-        authorService.deleteOneAuthor(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public ResponseEntity<?> deleteOneAuthor(@PathVariable("id") int id) {
+     var apiResponse =    authorService.deleteOneAuthor(id);
+        return new ResponseEntity<>(apiResponse,apiResponse.getHttpStatus());
     }
 }
