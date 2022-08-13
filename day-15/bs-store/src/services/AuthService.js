@@ -13,6 +13,16 @@ class AuthService {
       .then((reps) => reps.data)
       .catch((err) => err.response.status);
   }
+
+  async register(body){
+    const url = `${this.baseUrl}/register`;
+
+    return await axios
+      .post(url,body)
+      .then((reps) => reps.data)
+      .catch((err) => err.response.status);
+
+  }
 }
 
 export default AuthService;

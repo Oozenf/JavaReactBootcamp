@@ -20,6 +20,7 @@ import {useSelector} from "react-redux";
 import UpdateCategory from "./adminpages/categories/UpdateCategory";
 import AddBook from "./adminpages/books/AddBook";
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 import BookList from "./pages/book/BookList";
 
 
@@ -58,6 +59,7 @@ function App() {
         <Route path='/admin/authors/add' element={<AddAuthor />} />
         
         <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/register" element={<Register/>} />
 
         <Route path="/books" element={<BookList />} />
 

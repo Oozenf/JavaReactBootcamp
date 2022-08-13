@@ -1,9 +1,10 @@
 import { LOGIN } from "../actions/authActions";
+import { REGISTER } from "../actions/authActions";
 import { authItems } from "../initialValues/authItems";
 
-// const initialValue = {
-//   authItems,
-// };
+const initialValue = {
+  authItems,
+};
 
 function authReducer(state={}, { type, payload }) {
   
@@ -16,6 +17,11 @@ function authReducer(state={}, { type, payload }) {
           ...payload,
           isLogin:true
         }
+      };
+    case REGISTER:
+      return {
+        ...state,
+        authItems: [...state.authItems, payload]
       };
 
     default:
