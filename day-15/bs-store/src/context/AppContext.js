@@ -8,6 +8,8 @@ export const AppContextProvider = ({ children }) => {
    
     const authorService = new AuthorService();
     const [authors, setAuthors] = useState([]);
+    const [carts, setCarts] = useState([]);
+
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -20,6 +22,8 @@ export const AppContextProvider = ({ children }) => {
     message: "selam",
     authors,
     setAuthors,
+    carts,
+    setCarts,
     isLoading,
     setIsLoading
   };

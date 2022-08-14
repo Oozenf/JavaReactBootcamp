@@ -20,6 +20,7 @@ import {useSelector} from "react-redux";
 import UpdateCategory from "./adminpages/categories/UpdateCategory";
 import AddBook from "./adminpages/books/AddBook";
 import Login from "./pages/login/Login";
+import Cart from "./components/cart/Cart"
 import Register from "./pages/register/Register";
 import BookList from "./pages/book/BookList";
 
@@ -62,6 +63,7 @@ function App() {
         <Route path="/auth/register" element={<Register/>} />
 
         <Route path="/books" element={<BookList />} />
+        <Route path="/carts" element={<Cart/>} />
 
         <Route path='/' element={<Home />} />
       </Routes>

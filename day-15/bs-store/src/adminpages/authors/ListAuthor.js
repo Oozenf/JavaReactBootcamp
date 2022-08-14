@@ -24,7 +24,6 @@ export default function ListAuthor() {
   const { authors, setAuthors, isLoading, setIsLoading } = React.useContext(AppContext);
   
   const auths = useSelector((state) => state.auth);
-  const accessToken = auths.authItems.accessToken
 
 
   const removeAuthor = (id) => {
@@ -43,7 +42,7 @@ export default function ListAuthor() {
 
     
 
-    authorService.deleteOneAuthor(id,accessToken)
+    authorService.deleteOneAuthor(id,auths.authItems.accessToken)
       .then((resp) => {
         setAuthors(resp.data)
         let afterRemove = authors.filter((author) => author.id !== id);

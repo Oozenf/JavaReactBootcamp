@@ -16,6 +16,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import ThemeMenu from "../theme/ThemeMenu";
 import { useSelector } from "react-redux";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+
 
 const pages = ["Books", "Categories", "Authors"];
 const paths = [
@@ -188,10 +190,16 @@ const AdminAppbar = () => {
               </Menu>
             </Box>
           )}
+          <IconButton color="secondary" aria-label="add to cart" onClick={() => navigate("/carts")}>
+         
+         <AddShoppingCartIcon fontSize='large'/>
+       </IconButton>
 
           <ThemeMenu />
-
+         
           <div>{loginAndLogoutButton}</div>
+
+          
         </Toolbar>
       </Container>
     </AppBar>
