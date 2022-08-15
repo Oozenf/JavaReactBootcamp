@@ -18,7 +18,7 @@ const theme2 = createTheme({
 const theme3 = createTheme({
   palette: {
     primary: green,
-    secondary: brown,
+    secondary: yellow,
   },
 });
 

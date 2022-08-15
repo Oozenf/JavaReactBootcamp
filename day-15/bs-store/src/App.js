@@ -65,7 +65,7 @@ function App() {
         <Route path="/books" element={<BookList />} />
         <Route path="/carts" element={<Cart/>} />
 
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<BookList />} />
       </Routes>
 
       <SimpleSnackbar snackbar={snackbar} />
